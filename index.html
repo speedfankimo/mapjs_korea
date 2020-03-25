@@ -23,7 +23,7 @@
       useHTTPS: true,
       baseUrl: new mapsjs.service.Url('http', 'api.heremaps.kr')
     });
-    var defaultLayers = platform.createDefaultLayers({lg:'eng',lg2:'kor'});
+    var defaultLayers = platform.createDefaultLayers({lg:'eng',lg2:'kor',pois:'!F});
 
     var map = new H.Map(document.getElementById('map'),
       defaultLayers.normal.map,
