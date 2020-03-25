@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <link rel="stylesheet" type="text/css" href="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.css" />
+    <script src="https://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <!-- for interactive map  -->
+    <script src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+    <!-- for StreetLevel -->
+    <script src="https://js.api.here.com/v3/3.0/mapsjs-pano.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+
+</head>
+<body>
+<div id="map" style="width: 100%; height: 800px; background: grey" />
+  <script>
+    var platform = new H.service.Platform({
+      app_id: 'OpnOeeAkAALSVSlPWcsf',
+      app_code: '_Bi6G3bqymSbOGwt2YYM2g',
+      useCIT: true,
+      useHTTPS: true,
+      baseUrl: new mapsjs.service.Url('http', 'api.heremaps.kr')
+    });
+    var defaultLayers = platform.createDefaultLayers({lg:'eng',lg2:'kor'});
+
+    var map = new H.Map(document.getElementById('map'),
+      defaultLayers.normal.map,
+      {
+        zoom: 13,
+        center: { lat: 37.499603, lng: 127.0337914 }
+      }
+    );
+    
+    // MapEvents enables the event system
+    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    
+    // Create the default UI components
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+  </script>
+</body>
